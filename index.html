@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Books</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <header>
+           <nav>
+            <h1>Awesome Books</h1>
+            <ul class="top-nav">
+                <li class="bk-nav"><a href="#">List</a></li>
+                <li class="bk-nav"><a href="#">Add Book</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+           </nav>
+        </header>
+        <section class="book-list hidden">
+            <h2>All awesome books</h2>
+            <div class="book-div">
+                <ul class="all-books"></ul>
+            </div>
+        </section>
+        <section class="add-book">
+            <h2>Add a new book</h2>
+            <form action="#" class="form">
+                <div class="title-div">
+                    <input type="text" name="title" id="title" placeholder="Title" required>
+                </div>
+                <div class="author-div">
+                    <input type="text" name="author" id="author" placeholder="Author" required>
+                </div>
+                <button type="submit" id="add-btn">Add</button>
+            </form>
+        </section>
+        <section class="contact hidden">
+            <h2>Contact Information</h2>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Copyright 2022</p>
+    </footer>
+</body>
+</html>
