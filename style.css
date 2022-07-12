@@ -107,4 +107,22 @@ body {
   
   /* book list*/
   
+  .rm-btn {
+    padding: 5px 15px;
+    border-radius: 0;
+    border: 2px solid #000 ;
+    box-shadow: 2px 2px 1px 1px;
+  }
   
+  #all-books {
+    border: 3px solid;
+    width: 50vw;
+  }
+  
+  .listed-bk {
+    border: 3px solid;
+    padding: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
