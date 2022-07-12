@@ -1,5 +1,7 @@
+/* eslint-disable import/no-cycle */
+import { displayBooks } from './bookList.js';
+
 let books = JSON.parse(localStorage.getItem('books'));
-// add class
 export default class Book {
   constructor(title, author, id) {
     this.title = title;

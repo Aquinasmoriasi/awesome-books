@@ -1,3 +1,6 @@
+/* eslint-disable max-classes-per-file */
+/* eslint-disable import/extensions */
+
 import Book from '../modules/books.js';
 import { displayBooks } from '../modules/bookList.js';
 
@@ -23,6 +26,9 @@ const contacts = document.getElementById('contacts');
 const listLink1 = document.getElementById('con-link1');
 const listLink2 = document.getElementById('con-link2');
 const listLink3 = document.getElementById('con-link3');
+const date = document.getElementById('date');
+const shownDate = [Date().split(' ').splice(1, 4).join(' ')];
+date.append(shownDate);
 
 listLink1.addEventListener('click', () => {
   list.classList.remove('show');
@@ -50,7 +56,3 @@ listLink3.addEventListener('click', () => {
   listLink2.classList.remove('active');
   add.classList.add('show');
 });
-
-const date = document.getElementById('date');
-const shownDate = [Date().split(' ').splice(1, 4).join(' ')];
-date.append(shownDate);

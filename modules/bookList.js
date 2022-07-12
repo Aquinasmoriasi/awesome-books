@@ -1,3 +1,5 @@
+/* eslint-disable import/no-cycle */
+import Book from './books.js';
 /* eslint-disable import/prefer-default-export */
 export const displayBooks = (title, author, id) => {
   const bookList = document.querySelector('.all-book');
