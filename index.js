@@ -4,32 +4,30 @@ class Book {
     this.author = author;
   }
 
-  static addbook() {
-    const title = document.getElementById('title');
-    const author = document.getElementById('author');
-    const books = [];
-    const book = {
-      title: title.value,
-      author: author.value,
-    };
-
-    books.push(book);
-    if (JSON.parse(window.localStorage.getItem('bookList')) === null) {
-        window.localStorage.setItem('bookList', JSON.stringify(books));
+  static books() {
+    let books;
+    if (localStorage.getItem('books') === null) {
+      books = [];
     } else {
-      JSON.parse(localStorage.getItem('bookList'));
-      books.push(book);
-      window.localStorage.setItem('bookList', JSON.stringify(books));
+      books = JSON.parse(localStorage.getItem('books'));
     }
+    return books;
+  }
+
+  static addBook(book) {
+    const books = this.books();
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
   }
 
   static remove(title) {
-    const books = JSON.parse(window.localStorage.getItem('bookList'));
-    books.filter((book) => book.title !== title);
-    window.localStorage.setItem('bookList', JSON.stringify('book'));
+    const books = this.books();
+    books.splice(title, 1);
+    localStorage.setItem('books', JSON.stringify(books));
   }
 
   static showBooks() {
+    const books = this.books();
     const booksUl = document.getElementById('all-books');
     const li = document.createElement('li');
     li.setAttribute('class', 'listed-bk');
@@ -37,7 +35,7 @@ class Book {
     span.setAttribute('class', 'li-item');
     const remove = document.createElement('button');
     remove.textContent = 'Remove';
-    const books = JSON.parse(window.localStorage.getItem('bookList'));
+
     for (let i = 0; i <= books.length; i += 1) {
       span.innerHTML += `<q>${books[i].title}<q> by ${books[i].author}`;
       li.append(span, remove);
@@ -46,7 +44,11 @@ class Book {
   }
 }
 
-document.getElementById('add-btn').onclick = () => {
-  Book.addbook();
+document.querySelector('.form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const title = document.querySelector('#title').value;
+  const author = document.querySelector('#author').value;
+  const book = new Book(title, author);
+  Book.addBook(book);
   Book.showBooks();
-};
+});
